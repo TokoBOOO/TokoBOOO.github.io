@@ -3,55 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reread – Give Your Books New Life</title>
+  <title>Reread – Why Donating Books Matters</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Work Sans', sans-serif; background: #fcf8f3; color: #3b2f2f; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    h1, h2, h3 { font-family: 'Libre Baskerville', serif; color: #4a302a; }
+    /* CSS Variables */
+    :root {
+      --bg-light: #fcf8f3;
+      --accent: #a67859;
+      --text-primary: #3b2f2f;
+      --card-bg: #ffffff;
+      --section-alt: #f7f1ec;
+    }
+    /* Reset */n    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Work Sans', sans-serif; background: var(--bg-light); color: var(--text-primary); line-height: 1.6; }
+    a { color: var(--accent); }
 
-    /* Header & Nav */
-    header { background: #eae0d5; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    header h1 { font-size: 2rem; }
-    nav ul { display: flex; gap: 1rem; }
-    nav a { font-weight: 600; padding: 0.5rem; transition: background 0.3s; }
-    nav a:hover { background: #d7c3af; border-radius: 4px; }
+    /* Header */
+    header { background: var(--card-bg); padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    header h1 { font-family: 'Libre Baskerville', serif; font-size: 2rem; color: var(--accent); }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { font-weight: 600; padding: 0.5rem; transition: color 0.3s, background 0.3s; border-radius: 4px; }
+    nav a:hover { background: var(--accent); color: #fff; }
 
-    /* Sections */
-    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
-    .hero { text-align: center; background: #fff6f0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 3rem 2rem; }
-    .hero h2 { font-size: 2.75rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.15rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .btn { display: inline-block; background: #a67859; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
-    .btn:hover { background: #8f6045; }
+    /* Section Base */n    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+    section.alt { background: var(--section-alt); }
+    h2 { font-family: 'Libre Baskerville', serif; color: var(--accent); margin-bottom: 1rem; }
+    p { margin-bottom: 1rem; }
 
-    /* Info Cards */
-    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .info-card { background: #ffffff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .info-card h3 { margin-bottom: 0.75rem; }
+    /* Hero */n    .hero { text-align: center; }
+    .hero h2 { font-size: 2.5rem; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: transform 0.3s; }
+    .btn:hover { transform: scale(1.05); }
 
-    /* Testimonials */
-    .testimonials { margin-top: 2rem; }
-    .testimonial { background: #fff; border-left: 4px solid #a67859; padding: 1rem 1.5rem; margin-bottom: 1.5rem; border-radius: 4px; }
-    .testimonial p { font-style: italic; }
-    .testimonial cite { display: block; margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem; text-align: right; }
+    /* Info Grid */n    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .info-card { background: var(--card-bg); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s; }
+    .info-card:hover { transform: translateY(-5px); }
 
-    /* Form Styles */
-    form { display: grid; gap: 1rem; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    label { font-weight: 500; }
-    input, textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
-    textarea { resize: vertical; }
+    /* Tips and FAQ */n    .tips, .faq { margin-top: 2rem; }
+    .tips li, .faq dt { margin-bottom: 0.5rem; }
+    .faq dt { font-weight: 600; cursor: pointer; }
+    .faq dd { margin: 0 0 1rem 1rem; }
 
-    /* Footer */
-    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #7a6b6b; }
-    footer a { color: #3b2f2f; font-weight: 600; }
+    /* Footer */n    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #7a6b6b; }
 
-    /* 3D Model Container */
-    #model-container { width: 100%; height: 400px; margin-top: 2rem; }
+    /* 3D Model */n    #model-container { width: 100%; height: 400px; margin: 2rem auto; }
+
+    /* Smooth Scroll */n    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
@@ -60,121 +58,98 @@
     <nav>
       <ul>
         <li><a href="#about">Home</a></li>
-        <li><a href="#why">Why Donate?</a></li>
+        <li><a href="#why">Why Donate</a></li>
         <li><a href="#benefits">Benefits</a></li>
-        <li><a href="#donate">How to Donate</a></li>
-        <li><a href="#stories">Success Stories</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#prepare">Prepare</a></li>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
   <section id="about" class="hero">
-    <h2>Give Your Books New Life</h2>
-    <p>At Reread, we believe every book has a story beyond its pages. By donating your gently used books to local libraries, you help spark curiosity, support education, and build stronger communities.</p>
-    <a href="#donate" class="btn">Start Donating</a>
+    <h2>Why Donating Books Matters</h2>
+    <p>Learn how your gently used books can ignite imagination, support education, and foster community growth.</p>
+    <a href="#why" class="btn">Discover More</a>
     <div id="model-container"></div>
   </section>
 
   <!-- Why Donate -->
   <section id="why">
-    <h2>Why Donate Books?</h2>
-    <p>Donating books is more than passing along old stories; it’s about creating opportunities and fostering growth. Here’s why your contribution matters:</p>
+    <h2>Why Donate Your Books?</h2>
     <div class="info-grid">
       <div class="info-card">
-        <h3>Share Knowledge</h3>
-        <p>Your books can inspire readers who lack access. From adventurous tales to essential textbooks, every donation expands minds.</p>
+        <h3>Expand Access</h3>
+        <p>Books in public libraries remove financial barriers to reading.</p>
       </div>
       <div class="info-card">
-        <h3>Sustainability</h3>
-        <p>Keep books in circulation—reduce waste and give a second life to printed literature. It’s eco-friendly and easy.</p>
+        <h3>Support Literacy</h3>
+        <p>Donations enrich after-school and adult education programs.</p>
       </div>
       <div class="info-card">
-        <h3>Community Impact</h3>
-        <p>Local libraries and schools gain resources for programs like reading hours, literacy workshops, and cultural events.</p>
+        <h3>Eco-Friendly</h3>
+        <p>Reuse reduces waste and conserves resources.</p>
       </div>
       <div class="info-card">
-        <h3>Accessibility</h3>
-        <p>Help under-resourced communities by ensuring everyone has access to diverse reading materials, regardless of their background.</p>
+        <h3>Community Events</h3>
+        <p>Funds storytelling hours, workshops, and cultural gatherings.</p>
       </div>
     </div>
   </section>
 
   <!-- Benefits -->
-  <section id="benefits">
-    <h2>What You Get</h2>
-    <p>Beyond the joy of giving, donors enjoy tangible perks:</p>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>Tax Deduction</h3>
-        <p>Receive an official donation receipt for tax purposes. We partner with nonprofit libraries to facilitate all paperwork.</p>
-      </div>
-      <div class="info-card">
-        <h3>Book Exchange Credits</h3>
-        <p>Earn credits in our Reread marketplace. Redeem them for books you’ve been eager to explore.</p>
-      </div>
-      <div class="info-card">
-        <h3>Community Recognition</h3>
-        <p>Top donors are highlighted on our website, newsletters, and social media as champions of literacy.</p>
-      </div>
-      <div class="info-card">
-        <h3>Personal Growth</h3>
-        <p>Reflect on your reading journey and discover fresh perspectives as your donated books embark on new adventures.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Success Stories -->
-  <section id="stories">
-    <h2>Success Stories</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>“I donated my college textbooks, and they ended up at a community center where adult learners used them to pass certification exams. It felt incredible!”</p>
-        <cite>— Alex, Donor</cite>
-      </div>
-      <div class="testimonial">
-        <p>“Our local library received a shipment of children’s books from Reread. The kids gathered around for story time, and you could see their eyes light up.”</p>
-        <cite>— Maria, Librarian</cite>
-      </div>
-    </div>
-  </section>
-
-  <!-- How to Donate -->
-  <section id="donate">
-    <h2>How to Donate to Your Local Library</h2>
-    <p>You can bring your books directly to a nearby library in six simple steps:</p>
-    <ul class="info-grid" style="grid-template-columns: 1fr; list-style: disc; padding-left: 1.5rem;">
-      <li><strong>Find a Branch:</strong> Search online or use the library app to locate the closest public or community library.</li>
-      <li><strong>Review Policies:</strong> Check the library’s website for donation guidelines: acceptable genres, conditions, and drop-off hours.</li>
-      <li><strong>Prepare Your Books:</strong> Bundle books neatly, remove personal markings, and separate by type (fiction, non-fiction, children’s).</li>
-      <li><strong>Visit & Deliver:</strong> Arrive during donation times. Look for labeled bins or ask a staff member at the front desk.</li>
-      <li><strong>Get a Receipt:</strong> Request a donation receipt for tax deductions or record-keeping.</li>
-      <li><strong>Stay Involved:</strong> Sign up for newsletters or volunteer at book drives to keep supporting literacy initiatives.</li>
+  <section id="benefits" class="alt">
+    <h2>Benefits of Donating</h2>
+    <ul class="tips">
+      <li><strong>Tax Deductions:</strong> Official receipts available at most libraries.</li>
+      <li><strong>Declutter:</strong> Free up space with purpose.</li>
+      <li><strong>Learning Impact:</strong> Support diverse educational resources.</li>
+      <li><strong>Global Perspectives:</strong> Share books in multiple languages.</li>
     </ul>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact the Creator</h2>
-    <p>Have suggestions or questions about Reread? We’d love to hear from you:</p>
-    <form onsubmit="alert('Message sent! Thank you for reaching out.'); return false;">
-      <label for="cname">Name</label>
-      <input type="text" id="cname" required>
+  <!-- Prepare -->
+  <section id="prepare">
+    <h2>How to Prepare Your Books</h2>
+    <ul class="tips">
+      <li>Ensure covers and pages are clean and intact.</li>
+      <li>Remove personal annotations and bookmarks.</li>
+      <li>Sort by genre or age group.</li>
+      <li>Package in sturdy boxes or reusable bags.</li>
+      <li>Label contents for easy library sorting.</li>
+    </ul>
+  </section>
 
-      <label for="cemail">Email</label>
-      <input type="email" id="cemail" required>
+  <!-- Steps -->
+  <section id="steps" class="alt">
+    <h2>Donation Steps</h2>
+    <ul class="tips">
+      <li><strong>Find a Library:</strong> Check local directories or online maps.</li>
+      <li><strong>Read Policies:</strong> Review accepted materials list.</li>
+      <li><strong>Drop Off:</strong> Visit during donation hours.</li>
+      <li><strong>Get Receipt:</strong> Ask for documentation.</li>
+      <li><strong>Volunteer:</strong> Join workshops or book drives.</li>
+    </ul>
+  </section>
 
-      <label for="cmessage">Message</label>
-      <textarea id="cmessage" rows="5" required></textarea>
-
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-    <p>You can also connect on <a href="https://twitter.com/rereadbooks" target="_blank">Twitter</a> or <a href="https://instagram.com/rereadbooks" target="_blank">Instagram</a>.</p>
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <dl class="faq">
+      <dt>Can I donate damaged books?</dt>
+      <dd>Most libraries accept gently worn books; avoid moldy or heavily torn ones.</dd>
+      <dt>What genres are preferred?</dt>
+      <dd>Popular genres include children’s literature, general fiction, and educational texts.</dd>
+      <dt>Do I need an appointment?</dt>
+      <dd>Some libraries allow walk-ins; others may require scheduled drop-offs—check online.</dd>
+      <dt>Can I donate magazines?</dt>
+      <dd>Many libraries accept current magazines; older issues may not be accepted.</dd>
+    </dl>
   </section>
 
   <footer>
-    Made with ❤️ by the Reread Team. © 2025
+    <p>Information provided for educational purposes. &copy; 2025 Reread.</p>
   </footer>
 
   <!-- Three.js -->
@@ -188,41 +163,22 @@
     renderer.setSize(container.clientWidth, 400);
     container.appendChild(renderer.domElement);
 
-    // Lights
     scene.add(new THREE.AmbientLight(0xffffff, 0.8));
     const dir = new THREE.DirectionalLight(0xfffbe6, 0.6);
     dir.position.set(5, 10, 7);
     scene.add(dir);
 
-    // Load 3D book model
     const loader = new THREE.GLTFLoader();
     loader.load(
       'https://rawcdn.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoxTextured/glTF/BoxTextured.gltf',
-      gltf => {
-        const book = gltf.scene;
-        book.scale.set(2, 2, 2);
-        scene.add(book);
-        animate();
-      },
+      gltf => { const book = gltf.scene; book.scale.set(2,2,2); scene.add(book); animate(); },
       undefined,
       err => console.error('Model load error:', err)
     );
 
-    camera.position.set(0, 2, 8);
-
-    function animate() {
-      requestAnimationFrame(animate);
-      scene.traverse(obj => {
-        if (obj.isMesh) obj.rotation.y += 0.005;
-      });
-      renderer.render(scene, camera);
-    }
-
-    window.addEventListener('resize', () => {
-      renderer.setSize(container.clientWidth, 400);
-      camera.aspect = container.clientWidth / 400;
-      camera.updateProjectionMatrix();
-    });
+    camera.position.set(0,2,8);
+    function animate() { requestAnimationFrame(animate); scene.traverse(obj => { if(obj.isMesh) obj.rotation.y += 0.005; }); renderer.render(scene, camera);}    
+    window.addEventListener('resize', () => { renderer.setSize(container.clientWidth,400); camera.aspect = container.clientWidth/400; camera.updateProjectionMatrix(); });
   </script>
 </body>
 </html>
