@@ -3,92 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Haven – Share the Joy of Reading</title>
+  <title>Reread – Give Your Books New Life</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     /* Reset & Base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Work Sans', sans-serif; background: #fdf8f2; color: #3b2f2f; }
+    body { font-family: 'Work Sans', sans-serif; background: #fcf8f3; color: #3b2f2f; line-height: 1.6; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
+    h1, h2, h3 { font-family: 'Libre Baskerville', serif; color: #4a302a; }
 
-    /* Layout */
-    header { background: #e3d5ca; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { font-family: 'Libre Baskerville', serif; font-size: 2rem; color: #4a302a; }
+    /* Header & Nav */
+    header { background: #eae0d5; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    header h1 { font-size: 2rem; }
     nav ul { display: flex; gap: 1rem; }
     nav a { font-weight: 600; padding: 0.5rem; transition: background 0.3s; }
-    nav a:hover { background: #d6c3b0; border-radius: 4px; }
-
-    section { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; }
-    .hero { margin-top: 2rem; text-align: center; }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #5a3e36; }
-    .hero p { font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6; }
-    .btn { display: inline-block; background: #a67859; color: #fff; padding: 0.8rem 1.5rem; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
-    .btn:hover { background: #8f6045; }
+    nav a:hover { background: #d7c3af; border-radius: 4px; }
 
     /* Sections */
-    #about { background: #fff; }
-    #mission { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-    #mission img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+    .hero { text-align: center; background: #fff6f0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 3rem 2rem; }
+    .hero h2 { font-size: 2.75rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.15rem; margin-bottom: 2rem; }
+    .btn { display: inline-block; background: #a67859; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
+    .btn:hover { background: #8f6045; }
 
-    #donate form { display: grid; gap: 1rem; }
-    #donate label { font-weight: 500; }
-    #donate input, #donate textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
-    #donate button { width: fit-content; }
+    /* Info Cards */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .info-card { background: #ffffff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .info-card h3 { margin-bottom: 0.75rem; }
+
+    /* Form Styles */
+    form { display: grid; gap: 1rem; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    label { font-weight: 500; }
+    input, textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
+    textarea { resize: vertical; }
 
     /* Footer */
     footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #7a6b6b; }
 
-    /* Three.js container */
+    /* 3D Model Container */
     #model-container { width: 100%; height: 400px; margin-top: 2rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>📚 Book Haven</h1>
+    <h1>📚 Reread</h1>
     <nav>
       <ul>
         <li><a href="#about">Home</a></li>
+        <li><a href="#why">Why Donate?</a></li>
+        <li><a href="#benefits">Benefits</a></li>
         <li><a href="#donate">Donate</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="about" class="hero">
-    <h2>Welcome to Book Haven</h2>
-    <p>Your community-driven library for sharing and donating books. Whether you have a novel you loved or textbooks you no longer need, your donation fuels a world of stories.</p>
-    <a href="#donate" class="btn">Donate a Book</a>
-
-    <!-- 3D Model -->
+    <h2>Give Your Books New Life</h2>
+    <p>At Reread, we connect passionate readers with the books you no longer need. Donate to our partnered libraries and help spread knowledge, one page at a time.</p>
+    <a href="#donate" class="btn">Start Donating</a>
     <div id="model-container"></div>
   </section>
 
-  <!-- Mission & Impact -->
-  <section id="mission">
-    <div>
-      <h3>Our Mission</h3>
-      <p>At Book Haven, we believe in the power of stories to transform lives. We partner with local libraries and schools to ensure every donated book finds a new reader. Together, we foster literacy, equity, and community.</p>
-      <h3>How It Works</h3>
-      <ul>
-        <li>✔ Collect gently used books</li>
-        <li>✔ Submit donation form</li>
-        <li>✔ We coordinate pick-up or drop-off</li>
-        <li>✔ Books distributed to partner libraries</li>
-      </ul>
+  <!-- Why Donate -->
+  <section id="why">
+    <h2>Why Donate Books?</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Share Knowledge</h3>
+        <p>Your books can inspire someone who otherwise might not have access to them. From fiction to academic texts, every title matters.</p>
+      </div>
+      <div class="info-card">
+        <h3>Sustainability</h3>
+        <p>Give books a second life instead of letting them collect dust. Reduce waste and support a circular economy for print media.</p>
+      </div>
+      <div class="info-card">
+        <h3>Community Impact</h3>
+        <p>Partnered libraries and schools receive more resources to host events, reading clubs, and educational programs.</p>
+      </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="Bookshelf illustration">
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits">
+    <h2>What You Get</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Tax Deduction</h3>
+        <p>All donations are tax-deductible. We provide receipts for your records.</p>
+      </div>
+      <div class="info-card">
+        <h3>Book Exchange Credits</h3>
+        <p>Earn credits to use in our online marketplace—get titles you’ve been wanting to read.</p>
+      </div>
+      <div class="info-card">
+        <h3>Community Recognition</h3>
+        <p>Top donors are featured on our website and social media channels.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Donate Form -->
   <section id="donate">
     <h2>Donate a Book</h2>
-    <p>Please fill out the form below to begin your donation:</p>
-    <form action="#" onsubmit="alert('Thank you! We will be in touch soon.'); return false;">
+    <p>Fill out the form below and we’ll arrange pick-up or drop-off:</p>
+    <form onsubmit="alert('Thank you for donating! We’ll be in touch soon.'); return false;">
       <label for="name">Full Name</label>
       <input type="text" id="name" required>
-      
+
       <label for="email">Email Address</label>
       <input type="email" id="email" required>
 
@@ -98,64 +124,83 @@
       <label for="author">Author</label>
       <input type="text" id="author" required>
 
-      <label for="condition">Condition (e.g., Like New, Good, Fair)</label>
+      <label for="condition">Condition (Like New, Good, Fair)</label>
       <input type="text" id="condition" required>
 
-      <label for="message">Additional Notes</label>
-      <textarea id="message" rows="4"></textarea>
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" rows="4"></textarea>
 
       <button type="submit" class="btn">Submit Donation</button>
     </form>
   </section>
 
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact the Creator</h2>
+    <p>Have feedback or questions? Reach out directly:</p>
+    <form onsubmit="alert('Message sent! I will reply soon.'); return false;">
+      <label for="cname">Name</label>
+      <input type="text" id="cname" required>
+
+      <label for="cemail">Email</label>
+      <input type="email" id="cemail" required>
+
+      <label for="cmessage">Message</label>
+      <textarea id="cmessage" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
   <footer>
-    Made with ❤️ for readers everywhere. © 2025 Book Haven
+    Made with ❤️ by tokoishere. © 2025
   </footer>
 
-  <!-- Three.js Libraries -->
+  <!-- Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
   <script>
-    // Scene setup
+    const container = document.getElementById('model-container');
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / 400, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, 400);
-    document.getElementById('model-container').appendChild(renderer.domElement);
+    renderer.setSize(container.clientWidth, 400);
+    container.appendChild(renderer.domElement);
 
     // Lights
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    const dirLight = new THREE.DirectionalLight(0xfffbe6, 0.8);
-    dirLight.position.set(5,10,7);
-    scene.add(dirLight);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    const dir = new THREE.DirectionalLight(0xfffbe6, 0.6);
+    dir.position.set(5, 10, 7);
+    scene.add(dir);
 
-    // Load GLTF model (replace URL with your own if desired)
+    // Load 3D book model
     const loader = new THREE.GLTFLoader();
     loader.load(
       'https://rawcdn.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/BoxTextured/glTF/BoxTextured.gltf',
       gltf => {
         const book = gltf.scene;
-        book.scale.set(2,2,2);
+        book.scale.set(2, 2, 2);
         scene.add(book);
         animate();
       },
       undefined,
-      err => console.error(err)
+      err => console.error('Model load error:', err)
     );
 
     camera.position.set(0, 2, 8);
 
     function animate() {
       requestAnimationFrame(animate);
-      scene.children.forEach(obj => { if(obj.rotation) obj.rotation.y += 0.005; });
+      scene.traverse(obj => {
+        if (obj.isMesh) obj.rotation.y += 0.0025;
+      });
       renderer.render(scene, camera);
     }
 
-    // Responsive resize
     window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / 400;
+      renderer.setSize(container.clientWidth, 400);
+      camera.aspect = container.clientWidth / 400;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, 400);
     });
   </script>
 </body>
